@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "./question.css";
 import ErrorMessage from "../errorMessage/ErrorMessage";
-import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Question = ({
   currQuest,
@@ -13,7 +13,6 @@ const Question = ({
   setScore,
   options,
   score,
-  setQuestions,
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
@@ -33,6 +32,21 @@ const Question = ({
     if (i === correct) setScore(score + 1);
     setError(false);
   };
+
+  const navigate = useNavigate();
+
+  const handleNext = () => {
+    if (currQuest > 8) {
+      navigate("/result");
+    } else if (selected) {
+      setCurrQuest(currQuest + 1);
+      setSelected();
+    } else {
+      setError("Please select an option first");
+    }
+  };
+
+  const handleQuit = () => {};
 
   return (
     <div className="question">
@@ -59,8 +73,9 @@ const Question = ({
             variant="contained"
             color="error"
             size="large"
-            style={{ width: 185 }}
+            style={{ width: 195 }}
             href="/"
+            onClick={handleQuit}
           >
             Quit
           </Button>
@@ -68,8 +83,8 @@ const Question = ({
             variant="contained"
             color="primary"
             size="large"
-            style={{ width: 185 }}
-            endIcon={<SendIcon />}
+            style={{ width: 195 }}
+            onClick={handleNext}
           >
             Next Question
           </Button>
