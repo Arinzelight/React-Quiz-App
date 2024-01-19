@@ -15,9 +15,9 @@ const App = () => {
 
   const fetchQuestions = async (category = "", difficulty = "") => {
     const { data } = await axios.get(
-      `https://opentdb.com/api.php?amount=20&${
-        category && `category = ${category}}`
-      }${difficulty && `difficulty = ${difficulty}}`}&type=multiple`
+      `https://opentdb.com/api.php?amount=10${
+        category && `&category=${category}`
+      }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
     );
 
     setQuestions(data.results);
@@ -50,10 +50,13 @@ const App = () => {
               />
             }
           />
-          <Route path="/result" element={<Result />} />
+          <Route
+            path="/result"
+            element={<Result score={score} name={name} />}
+          />
         </Routes>
+        <Footer />
       </div>
-      <Footer />
     </BrowserRouter>
   );
 };
