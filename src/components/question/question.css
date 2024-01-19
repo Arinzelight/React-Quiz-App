@@ -3,18 +3,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
+
 
 .singleQuestion{
     width: 95%;
-    min-height: 350px;
+    min-height: 360px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border: 5px solid grey;
-    padding: 20px;
-    margin-top: 10px;
+    border: 4px solid rgb(183, 184, 185);
+    padding: 15px;
+    /* margin-top: 10px; */
+    font-size: 14px;
+  
 }
 
 .options{
@@ -30,8 +34,8 @@
 .singleOption{
     width: 45%;
     height: 50px;
-    padding: 15px 20px;
-    margin: 10px;
+    padding: 10px 20px;
+    margin: 3px;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -39,7 +43,7 @@
 .select{
     background-color: rgb(7, 207, 0);
     color: #fff;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
 .wrong{
@@ -48,10 +52,38 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
+.controls{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 1rem;
+    
+}
+
 
 
 @media (max-width: 614px){
     .singleOption{
         width: 100%;
+        margin: 6.5px;
     }
+
+    .question h1{
+        margin-bottom: 0.6rem;
+        font-size: 24px;
+    }
+    
+    .singleQuestion h2{
+        
+        font-size: 18px;
+    }
+   
+
+    .question{
+        min-height: 65vh;
+        /* margin-top: -2rem; */
+    }
+
+
+
 }

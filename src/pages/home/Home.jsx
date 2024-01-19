@@ -46,12 +46,13 @@ const Home = ({ name, setName, fetchQuestions }) => {
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
-            {Categories.map((option) => (
-              <MenuItem key={option.category} value={option.value}>
-                {option.category}
+            {Categories.map((cat) => (
+              <MenuItem key={cat.category} value={cat.value}>
+                {cat.category}
               </MenuItem>
             ))}
           </TextField>
+
           <TextField
             select
             label="Select Difficulty"

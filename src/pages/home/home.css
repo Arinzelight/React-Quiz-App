@@ -1,6 +1,7 @@
 .content{
     display: flex;
     justify-content: space-around;
+   
 }
 
 .settings{
@@ -36,14 +37,22 @@
     .content{
         flex-direction: column-reverse;
         align-items: center;
+        
+        margin-bottom: 2rem;
     }
     .banner{
-        width: 85%;
+        min-width: 55%;
         padding: 0;
         padding-top: 20px;
+      
     }
 
     .settings{
         width: 100%;
+       
+    }
+
+    .settings_select{
+        padding: 8px;
     }
 }

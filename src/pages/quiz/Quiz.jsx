@@ -18,17 +18,17 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
           ...questions[currQuest]?.incorrect_answers,
         ])
     );
-  }, [questions]);
+  }, [questions, currQuest]);
 
   console.log(options);
 
-  const handleShuffle = (optionss) => {
-    return optionss.sort(() => Math.random() - 0.5);
+  const handleShuffle = (options) => {
+    return options.sort(() => Math.random() - 0.5);
   };
 
   return (
     <div className="quiz">
-      <span className="subtitle">Welcome {name}</span>
+      <span className="subtitle">Welcome, {name}</span>
       {questions ? (
         <>
           <div className="quizInfo">
@@ -43,7 +43,6 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
             correct={questions[currQuest]?.correct_answer}
             score={score}
             setScore={setScore}
-            setQuestions={setQuestions}
           />
         </>
       ) : (
