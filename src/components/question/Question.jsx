@@ -86,7 +86,7 @@ const Question = ({
             style={{ width: 195 }}
             onClick={handleNext}
           >
-            Next Question
+            Next
           </Button>
         </div>
       </div>
