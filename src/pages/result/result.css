@@ -4,4 +4,9 @@
     justify-content: center;
     height: 85vh;
     text-align: center;
+    
+}
+
+.result .title{
+    font-size: 19px;
 }

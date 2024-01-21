@@ -28,7 +28,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
     <div className="content">
       <div className="settings">
         <span style={{ fontSize: 30 }} className="quiz-settings">
-          Quiz settings
+          Settings
         </span>
         <div className="settings_select">
           {error && <ErrorMessage> Please Fill all the fields</ErrorMessage>}
@@ -81,7 +81,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
           </Button>
         </div>
       </div>
-      <img src="../assets/quiz-pic1.png" className="banner" alt="" />
+      <img src="../assets/quiz-pic1.jpg" className="banner" alt="" />
     </div>
   );
 };
