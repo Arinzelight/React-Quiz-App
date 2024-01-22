@@ -26,8 +26,6 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
 
   console.log(options);
 
-  const handleQuit = () => {};
-
   return (
     <div className="quiz">
       <span className="subtitle">Welcome, {name}</span>
@@ -58,7 +56,6 @@ const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
                 size="large"
                 style={{ width: 195 }}
                 href="/"
-                onClick={handleQuit}
               >
                 Back To Home
               </Button>
