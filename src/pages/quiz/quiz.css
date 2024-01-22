@@ -7,10 +7,12 @@
 }
 
 .subtitle{
-    font-size: 15px;
-    box-shadow: 0 1px 5px rgba(241, 241, 241, 0.8);
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(241, 241, 241, 0.8);
     padding: 5px 10px;
-    color: rgb(8, 243, 153);
+    color: rgb(19, 229, 149);
+
+    border-radius: 2px;
 }
 
 
