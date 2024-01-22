@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import he from "he";
 import "./App.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -14,13 +15,21 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
-    const { data } = await axios.get(
-      `https://opentdb.com/api.php?amount=10${
-        category && `&category=${category}`
-      }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
-    );
+    try {
+      const { data } = await axios.get(
+        `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+      );
 
-    setQuestions(data.results);
+      // Decode HTML entities in each question
+      const decodedQuestions = data.results.map((result) => ({
+        ...result,
+        question: he.decode(result.question),
+      }));
+
+      setQuestions(decodedQuestions);
+    } catch (error) {
+      console.error("Error fetching questions:", error);
+    }
   };
 
   return (

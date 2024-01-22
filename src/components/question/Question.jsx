@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./question.css";
+import he from "he";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -28,11 +29,15 @@ const Question = ({
   };
 
   const handleCheck = (i) => {
-    setSelected(i);
-    if (i === correct) setScore(score + 1);
+    // Decode HTML entities for the selected option and correct answer
+    const decodedSelected = he.decode(i);
+    const decodedCorrect = he.decode(correct);
+
+    setSelected(decodedSelected);
+
+    if (decodedSelected === decodedCorrect) setScore(score + 1);
     setError(false);
   };
-
   const navigate = useNavigate();
 
   const handleNext = () => {

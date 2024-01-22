@@ -43,8 +43,8 @@ const Home = ({ name, setName, fetchQuestions }) => {
             label="Select category"
             variant="outlined"
             style={{ marginBottom: 30 }}
-            onChange={(e) => setCategory(e.target.value)}
             value={category}
+            onChange={(e) => setCategory(e.target.value)}
           >
             {Categories.map((cat) => (
               <MenuItem key={cat.category} value={cat.value}>
