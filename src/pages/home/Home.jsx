@@ -64,10 +64,10 @@ const Home = ({ name, setName, fetchQuestions }) => {
             <MenuItem key="Easy" value="easy">
               Easy
             </MenuItem>
-            <MenuItem key="Medium" value="Medium">
+            <MenuItem key="Medium" value="medium">
               Medium
             </MenuItem>
-            <MenuItem key="Hard" value="Hard">
+            <MenuItem key="Hard" value="hard">
               Hard
             </MenuItem>
           </TextField>
