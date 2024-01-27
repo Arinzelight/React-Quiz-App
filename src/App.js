@@ -20,10 +20,17 @@ const App = () => {
         `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
       );
 
-      // Decode HTML entities in each question
+      // Decode HTML entities in each question and options
       const decodedQuestions = data.results.map((result) => ({
         ...result,
         question: he.decode(result.question),
+        // Decode options if they exist
+        ...(result.incorrect_answers && {
+          incorrect_answers: result.incorrect_answers.map((option) =>
+            he.decode(option)
+          ),
+        }),
+        correct_answer: he.decode(result.correct_answer),
       }));
 
       setQuestions(decodedQuestions);
