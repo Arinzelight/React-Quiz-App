@@ -18,34 +18,33 @@ const Question = ({
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
 
-  const handleSelect = (seleOpt) => {
-    if (selected === seleOpt && selected === correct) {
+  const handleSelect = (opt) => {
+    if (selected === opt && selected === correct) {
       return "select";
-    } else if (selected === seleOpt && selected !== correct) {
+    } else if (selected === opt && selected !== correct) {
       return "wrong";
-    } else if (seleOpt === correct) {
+    } else if (opt === correct) {
       return "select";
     }
+    return "";
   };
 
-  const handleCheck = (i) => {
-    // Decode HTML entities for the selected option and correct answer
-    const decodedSelected = he.decode(i);
-    const decodedCorrect = he.decode(correct);
-
-    setSelected(decodedSelected);
-
-    if (decodedSelected === decodedCorrect) setScore(score + 1);
-    setError(false);
+  const handleCheck = (opt) => {
+    setSelected(opt);
+    if (he.decode(opt) === he.decode(correct)) {
+      setScore(score + 1);
+    }
+    setError("");
   };
+
   const navigate = useNavigate();
 
   const handleNext = () => {
-    if (currQuest > 8) {
+    if (currQuest >= 8) {
       navigate("/result");
     } else if (selected) {
       setCurrQuest(currQuest + 1);
-      setSelected();
+      setSelected("");
     } else {
       setError("Please select an option first");
     }
